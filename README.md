@@ -148,11 +148,6 @@ conda activate <env-name>
 python testing_framework_parallelized.py
 ```
 
-### Run full evaluation (two-sided algorithms)
-```bash
-python collab_testing_framework.py
-```
-
 ### CLI options
 ```bash
 python testing_framework_parallelized.py --constraints-only
@@ -173,7 +168,3 @@ python single_algorithm_runner.py --algorithm Euclidean --iterations 100 --mento
 The included CSV files (`mentors_dataset.csv`, `mentees_dataset.csv`) are **synthetically generated** and contain no real personal data. Each profile includes: position, experience level, expertise, language, industry, education, availability, location, and mentoring preferences.
 
 ---
-
-## Files to Ignore
-
-Results, processed data, and screenshots are excluded via `.gitignore` as they are reproducible by running the framework.
