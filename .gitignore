@@ -1,0 +1,41 @@
+# Compiled Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Generated results (large, reproducible)
+results/
+comparison_results/
+distributed_results/
+data/
+
+# Derived/output CSVs
+processed_mentors.csv
+processed_mentees.csv
+matches_output.csv
+matches_output_kmeans.csv
+
+# Screenshots
+screenshots/
+
+# Personal documents
+*.docx
+*.doc
+
+# Jupyter / IPython
+.ipynb_checkpoints/
+*.ipynb
+
+# Environment
+.env
+*.egg-info/
+dist/
+build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/

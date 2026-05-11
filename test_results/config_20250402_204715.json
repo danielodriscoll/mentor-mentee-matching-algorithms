@@ -1,0 +1,129 @@
+{
+    "mentors_file": "mentors_dataset.csv",
+    "mentees_file": "mentees_dataset.csv",
+    "constraint_iterations": 1,
+    "scalability_iterations": 1,
+    "dataset_sizes": [
+        {
+            "mentors": 500,
+            "mentees": 1000,
+            "label": "Small (500/1000)"
+        },
+        {
+            "mentors": 1000,
+            "mentees": 2000,
+            "label": "Medium (1000/2000)"
+        },
+        {
+            "mentors": 2000,
+            "mentees": 4000,
+            "label": "Large (2000/4000)"
+        },
+        {
+            "mentors": 4000,
+            "mentees": 4000,
+            "label": "Max Equal (4000/4000)"
+        }
+    ],
+    "constraints": [
+        {
+            "label": "Basic (2 constraints)",
+            "constraints": {
+                "max_mentees_per_mentor": 2,
+                "min_similarities": 2
+            }
+        },
+        {
+            "label": "Industry Match (3 constraints)",
+            "constraints": {
+                "max_mentees_per_mentor": 2,
+                "min_similarities": 2,
+                "industry_match": true
+            }
+        },
+        {
+            "label": "Experience & Education (5 constraints)",
+            "constraints": {
+                "max_mentees_per_mentor": 2,
+                "min_similarities": 2,
+                "industry_match": true,
+                "min_experience_gap": 2,
+                "education_level": true
+            }
+        },
+        {
+            "label": "Communication & Availability (7 constraints)",
+            "constraints": {
+                "max_mentees_per_mentor": 2,
+                "min_similarities": 2,
+                "industry_match": true,
+                "min_experience_gap": 2,
+                "education_level": true,
+                "communication_match": true,
+                "availability_match": true
+            }
+        },
+        {
+            "label": "Language & Mentoring (10 constraints)",
+            "constraints": {
+                "max_mentees_per_mentor": 2,
+                "min_similarities": 2,
+                "industry_match": true,
+                "min_experience_gap": 2,
+                "education_level": true,
+                "communication_match": true,
+                "availability_match": true,
+                "language_match": true,
+                "secondary_language_match": true,
+                "mentoring_preferences_match": true
+            }
+        },
+        {
+            "label": "Expertise & Position (15 constraints)",
+            "constraints": {
+                "max_mentees_per_mentor": 2,
+                "min_similarities": 2,
+                "industry_match": true,
+                "min_experience_gap": 2,
+                "education_level": true,
+                "communication_match": true,
+                "availability_match": true,
+                "language_match": true,
+                "secondary_language_match": true,
+                "mentoring_preferences_match": true,
+                "expertise_overlap": true,
+                "position_progression": true,
+                "min_position_level_gap": 1,
+                "complementary_roles": true,
+                "required_mentor_expertise": "Machine Learning"
+            }
+        },
+        {
+            "label": "Full Constraints (20 constraints)",
+            "constraints": {
+                "max_mentees_per_mentor": 2,
+                "min_similarities": 2,
+                "industry_match": true,
+                "min_experience_gap": 2,
+                "education_level": true,
+                "communication_match": true,
+                "availability_match": true,
+                "language_match": true,
+                "secondary_language_match": true,
+                "mentoring_preferences_match": true,
+                "expertise_overlap": true,
+                "position_progression": true,
+                "min_position_level_gap": 1,
+                "complementary_roles": true,
+                "required_mentor_expertise": "Machine Learning",
+                "gender_match": true,
+                "location_match": true,
+                "workstyle_match": true,
+                "min_industry_years": 5,
+                "mentoring_style_match": true,
+                "max_distance": 5,
+                "communication_frequency": "Weekly"
+            }
+        }
+    ]
+}
