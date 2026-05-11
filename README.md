@@ -10,12 +10,12 @@ A comparison of four mentor-mentee matching algorithms, each implemented in both
 flowchart TD
     CSV[("mentors_dataset.csv\nmentees_dataset.csv")]
 
-    CSV --> PRE["preprocess_data()\nLabel encode · Feature weights · Sample size"]
+    CSV --> PRE["preprocess_data()\nLabel encode, feature weights, sample size"]
 
     PRE --> OS
     PRE --> TS
 
-    subgraph OS["One-Sided Algorithms\n(mentee is matched to best available mentor)"]
+    subgraph OS["One-Sided: mentee matched to best available mentor"]
         direction LR
         E["Euclidean Distance"]
         K["K-Means Clustering"]
@@ -23,43 +23,41 @@ flowchart TD
         DA["Deferred Acceptance"]
     end
 
-    subgraph TS["Two-Sided Algorithms\n(both sides rank each other — stable matching)"]
+    subgraph TS["Two-Sided: both sides rank each other"]
         direction LR
-        ET["Euclidean (Two-Sided)"]
-        KT["K-Means (Two-Sided)"]
-        GT["GA (Two-Sided)"]
-        DAT["Deferred Acceptance (Two-Sided)"]
+        ET["Euclidean Two-Sided"]
+        KT["K-Means Two-Sided"]
+        GT["GA Two-Sided"]
+        DAT["Deferred Acceptance Two-Sided"]
     end
 
-    OS --> FW
+    OS --> FW["testing_framework_parallelized.py\nSwap top-level imports for one-sided or two-sided mode"]
     TS --> FW
-
-    FW["testing_framework_parallelized.py\nSwap imports at top to run one-sided or two-sided"]
 
     FW --> PAR
 
-    subgraph PAR["multiprocessing.Pool  —  N workers = cpu_count()"]
+    subgraph PAR["multiprocessing.Pool - N workers = cpu_count()"]
         direction LR
-        W1["Euclidean & K-Means\nimap_unordered\none task per iteration"]
-        W2["GA & Deferred Acceptance\npool.map with batching\niterations grouped per process"]
+        W1["Euclidean and K-Means\nimap_unordered\none task per iteration"]
+        W2["GA and Deferred Acceptance\npool.map with batching\niterations grouped per process"]
     end
 
-    PAR --> ITER["Per iteration:\n① seed + shuffle data\n② run matching algorithm\n③ evaluate_matching()\n④ return metrics dict"]
+    PAR --> ITER["Per iteration\n1. Seed and shuffle data\n2. Run matching algorithm\n3. evaluate_matching()\n4. Return metrics dict"]
 
-    ITER --> AGG["Aggregate N iterations\navg validity · avg similarity · avg execution time"]
+    ITER --> AGG["Aggregate across N iterations\navg validity, avg similarity, avg execution time"]
 
     AGG --> CA
     AGG --> SA
 
-    subgraph CA["Constraint Analysis\n(fixed dataset size, vary constraints)"]
-        C1["Basic (2)"] --> C2["Industry (3)"] --> C3["Exp + Edu (5)"] --> C4["Comm + Avail (7)"] --> C5["Lang + Mentor (10)"] --> C6["Expertise + Position (15)"] --> C7["Full (20)"]
+    subgraph CA["Constraint Analysis: fixed dataset size, vary constraints"]
+        C1["Basic 2"] --> C2["Industry 3"] --> C3["Exp and Edu 5"] --> C4["Comm and Avail 7"] --> C5["Lang and Mentor 10"] --> C6["Expertise and Position 15"] --> C7["Full 20"]
     end
 
-    subgraph SA["Scalability Analysis\n(fixed constraints, vary dataset size)"]
-        S1["Small\n500 mentors · 1000 mentees"] --> S2["Medium\n1000 · 2000"] --> S3["Large\n2000 · 4000"] --> S4["Max Equal\n4000 · 4000"]
+    subgraph SA["Scalability Analysis: fixed constraints, vary dataset size"]
+        S1["Small\n500 mentors / 1000 mentees"] --> S2["Medium\n1000 / 2000"] --> S3["Large\n2000 / 4000"] --> S4["Max Equal\n4000 / 4000"]
     end
 
-    CA --> OUT["results/\nCSV per algorithm × config · Matplotlib charts"]
+    CA --> OUT["results/\nCSV per algorithm per config, Matplotlib charts"]
     SA --> OUT
 ```
 
