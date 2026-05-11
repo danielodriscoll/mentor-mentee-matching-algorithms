@@ -8,6 +8,9 @@ results/
 comparison_results/
 distributed_results/
 data/
+test_results/
+100_onesided_scalability/
+500_constraints_onesided/
 
 # Derived/output CSVs
 processed_mentors.csv
@@ -18,9 +21,15 @@ matches_output_kmeans.csv
 # Screenshots
 screenshots/
 
-# Personal documents
+# Personal documents and media
 *.docx
 *.doc
+*.pdf
+*.pptx
+*.ppt
+*.mp4
+*.mov
+*.avi
 
 # Jupyter / IPython
 .ipynb_checkpoints/
