@@ -90,9 +90,6 @@ Runs Euclidean, K-Means, GA, and Deferred Acceptance against each constraint and
 - Euclidean / K-Means: one task per iteration (`imap_unordered`)
 - GA / Deferred Acceptance: iterations batched per process (`pool.map`) to reduce spawn overhead
 
-### `collab_testing_framework.py` — Two-Sided / Colab Mode
-Identical structure but runs the two-sided algorithm variants. Includes a Google Colab compatibility block in `main()`.
-
 ### Supporting Scripts
 | File | Purpose |
 |---|---|
